@@ -32,10 +32,10 @@ const addActor = async (req, res) => {
 
     const result = await mongodb.getDb().db("K-Dramas").collection('Actors').insertOne(create);
     if (result.acknowledged) {
-      // #swagger.responses[201] = { description: 'The contact was created successfully' }
+      // #swagger.responses[201] = { description: 'The actor was added successfully' }
         res.status(201).json(result);
     } else {
-      // #swagger.responses[500] = { description: 'Faling creating the contact' }
+      // #swagger.responses[500] = { description: 'Faling adding the actor' }
         res.status(500).json(result.error || 'Cannot add the actor.');
     }
 };
