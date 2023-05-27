@@ -3,8 +3,9 @@ const router = express.Router();
 
 const dramasController = require('../controllers/dramasController');
 
-const validation = require('../validation');
-
+//const validation = require('../validation');
+const {dramasValidation} = require('../validation');
+const { validationResult } = require('express-validator');
 
 router.get('/', dramasController.getAllDramas, (req, res) =>{
     // #swagger.tags = ['Dramas']
@@ -17,15 +18,25 @@ router.get('/:id', dramasController.getSingleDrama, (req, res) =>{
      // #swagger.parameters['id'] = { description: 'Drama ID.' }
 
 });
-router.post('/', validation.addDrama, dramasController.addDrama, (req, res) =>{
+router.post('/', dramasController.addDrama, dramasValidation(),(req, res) =>{
     // #swagger.tags = ['Dramas']
     // #swagger.description = 'Endpoint to add a new drama.'
+    let errors = validationResult(req);
+    if(!errors.isEmpty()){
+        console.log(errors.array());
+        return res.json({errors: errors.array()});
+    }
 });
 
-router.put('/:id',validation.addDrama, dramasController.updateDrama, (req, res) =>{
+router.put('/:id', dramasController.updateDrama,dramasValidation(), (req, res) =>{
     // #swagger.tags = ['Dramas']
     // #swagger.description = 'Endpoint to update a Drama.'
      // #swagger.parameters['id'] = { description: 'Drama ID.' }
+     let errors = validationResult(req);
+     if(!errors.isEmpty()){
+         console.log(errors.array());
+         return res.json({errors: errors.array()});
+     }
 });
 
 router.delete('/:id', dramasController.deleteDrama, (req, res) =>{

@@ -4,9 +4,9 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllDramas = async (req, res, next) => {
   const result = await mongodb.getDb().db('K-Dramas').collection('Dramas').find();
   result.toArray().then((lists) => {
-    if (err) {
+   /* if (err) {
       res.status(400).json({ message: err });
-    }
+    }*/
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
   });
