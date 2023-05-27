@@ -97,6 +97,38 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Dramas"
+        ],
+        "description": "Endpoint to update a Drama.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Drama ID."
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "Dramas"
+        ],
+        "description": "Endpoint to delete a Drama.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Drama ID."
+          }
+        ],
+        "responses": {}
       }
     },
     "/actors/": {
@@ -176,6 +208,38 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Actors"
+        ],
+        "description": "Endpoint to update an actor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Actor ID."
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "Actors"
+        ],
+        "description": "Endpoint to delete an actor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Actor ID."
+          }
+        ],
+        "responses": {}
       }
     }
   }

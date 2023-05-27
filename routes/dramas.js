@@ -19,5 +19,16 @@ router.post('/', dramasController.addDrama, (req, res) =>{
     // #swagger.description = 'Endpoint to add a new drama.'
 });
 
+router.put('/:id', dramasController.updateDrama, (req, res) =>{
+    // #swagger.tags = ['Dramas']
+    // #swagger.description = 'Endpoint to update a Drama.'
+     // #swagger.parameters['id'] = { description: 'Drama ID.' }
+});
+
+router.delete('/:id', dramasController.deleteDrama, (req, res) =>{
+    // #swagger.tags = ['Dramas']
+    // #swagger.description = 'Endpoint to delete a Drama.'
+     // #swagger.parameters['id'] = { description: 'Drama ID.' }
+});
 
 module.exports = router;

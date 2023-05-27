@@ -21,4 +21,15 @@ router.post('/', actorsController.addActor, (req, res) =>{
     // #swagger.description = 'Endpoint to add a new actor.'
 });
 
+router.put('/:id', actorsController.updateActor, (req, res) =>{
+    // #swagger.tags = ['Actors']
+    // #swagger.description = 'Endpoint to update an actor.'
+     // #swagger.parameters['id'] = { description: 'Actor ID.' }
+});
+
+router.delete('/:id', actorsController.deleteActor, (req, res) =>{
+    // #swagger.tags = ['Actors']
+    // #swagger.description = 'Endpoint to delete an actor.'
+     // #swagger.parameters['id'] = { description: 'Actor ID.' }
+});
 module.exports = router;
