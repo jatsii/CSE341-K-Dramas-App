@@ -8,7 +8,7 @@
   "host": "jatsi341-assignment5.onrender.com",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/dramas/": {
