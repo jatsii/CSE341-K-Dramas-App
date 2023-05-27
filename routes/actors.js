@@ -18,7 +18,7 @@ router.get('/:id', actorsController.getSingleActor, (req, res) =>{
 
 });
 
-router.post('/', actorsController.addActor, actorsValidation(),  (req, res) =>{
+router.post('/',actorsValidation(), actorsController.addActor,   (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to add a new actor.'
     let errors = validationResult(req);
@@ -28,7 +28,7 @@ router.post('/', actorsController.addActor, actorsValidation(),  (req, res) =>{
     }
 });
 
-router.put('/:id', actorsController.updateActor,actorsValidation(), (req, res) =>{
+router.put('/:id', actorsValidation(),actorsController.updateActor, (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to update an actor.'
      // #swagger.parameters['id'] = { description: 'Actor ID.' }
