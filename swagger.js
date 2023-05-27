@@ -11,7 +11,7 @@ const doc = {
   },
   host: 'jatsi341-assignment5.onrender.com',
   //basePath: "/",
-  schemes: ['http']
+  schemes: ['https']
   //consumes: ['application/json'],
   //produces: ['application/json'],
   //tags:[
