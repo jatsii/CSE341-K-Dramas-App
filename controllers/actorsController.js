@@ -4,6 +4,9 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllActors = async (req, res, next) => {
   const result = await mongodb.getDb().db('K-Dramas').collection('Actors').find();
   result.toArray().then((lists) => {
+    if (err) {
+      res.status(400).json({ message: err });
+    }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
   });
@@ -17,6 +20,9 @@ const getSingleActor = async (req, res, next) => {
     .collection('Actors')
     .find({ _id: userId });
   result.toArray().then((lists) => {
+    if (err) {
+      res.status(400).json({ message: err });
+    }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
   });

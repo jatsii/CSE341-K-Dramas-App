@@ -3,20 +3,8 @@ const router = express.Router();
 
 const dramasController = require('../controllers/dramasController');
 
-const createError = require('http-errors');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { dramasValidation, validate } = require('../validation');
+const validation = require('../validation');
 
-router.use(express.json());
- 
-router.use(bodyParser.json());
- 
-router.use(bodyParser.urlencoded({
-    extended: true
-}));
- 
-router.use(cors());
 
 router.get('/', dramasController.getAllDramas, (req, res) =>{
     // #swagger.tags = ['Dramas']
@@ -29,12 +17,12 @@ router.get('/:id', dramasController.getSingleDrama, (req, res) =>{
      // #swagger.parameters['id'] = { description: 'Drama ID.' }
 
 });
-router.post('/', dramasController.addDrama, dramasValidation(), validate, (req, res) =>{
+router.post('/', validation.addDrama, dramasController.addDrama, (req, res) =>{
     // #swagger.tags = ['Dramas']
     // #swagger.description = 'Endpoint to add a new drama.'
 });
 
-router.put('/:id', dramasController.updateDrama, (req, res) =>{
+router.put('/:id',validation.addDrama, dramasController.updateDrama, (req, res) =>{
     // #swagger.tags = ['Dramas']
     // #swagger.description = 'Endpoint to update a Drama.'
      // #swagger.parameters['id'] = { description: 'Drama ID.' }

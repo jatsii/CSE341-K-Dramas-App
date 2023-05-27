@@ -1,11 +1,61 @@
-const {body, validationResult } = require('express-validator');
+const validator = require('./validate');
+
+const addActor = (req, res, next) => {
+    const validationActor = {
+        actorName: 'require|string',
+        characterName: 'require|string',
+        birthdate: 'require|string',
+        nationality: 'require|string'
+    };
+    validator(req.body, validationActor, {}, (err, status) => {
+        if(!status) {
+            res.status(412).send({
+                success: false,
+                message: 'Actor Validation failed',
+                data: err
+        });
+    } else {
+        next();
+    }
+    });
+};
+
+const addDrama = (req, res, next) => {
+    const validationDrama = {
+        title: 'require|string',
+        content: 'require|string',
+        chapters: 'require|string',
+        date: 'require|string',
+        genre: 'require|string',
+        producer: 'require|string',
+        writer: 'require|string'
+    };
+    validator(req.body, validationDrama, {}, (err, status) => {
+        if(!status) {
+            res.status(412).send({
+                success: false,
+                message: 'Drama Validation failed',
+                data: err
+        });
+    } else {
+        next();
+    }
+    });
+};
+
+module.exports ={
+    addActor,
+    addDrama
+};
+
+/*const {body, validationResult } = require('express-validator');
  
 const actorsValidation = () => {
     return [
-        body('actorName', 'Name is requied').not().isEmpty(),
-        body('characterName', 'Character Name is requied').not().isEmpty(),
-        body('birthdate', 'Birthdate is requied').not().isEmpty(),
-        body('nationality', 'Nationality is requied').not().isEmpty()
+        body('actorName').not().isEmpty(),
+        body('characterName').not().isEmpty(),
+        body('birthdate').not().isEmpty(),
+        body('nationality').not().isEmpty(),
     ]
 }
  
@@ -38,4 +88,4 @@ const validate = (req, res, next) => {
     dramasValidation,
     actorsValidation,
     validate,
-  }
+  }*/
