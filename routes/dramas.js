@@ -6,7 +6,7 @@ const dramasController = require('../controllers/dramasController');
 const createError = require('http-errors');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { dramasValidation } = require('../validation');
+const { dramasValidation, validate } = require('../validation');
 
 router.use(express.json());
  
@@ -29,7 +29,7 @@ router.get('/:id', dramasController.getSingleDrama, (req, res) =>{
      // #swagger.parameters['id'] = { description: 'Drama ID.' }
 
 });
-router.post('/', dramasController.addDrama, dramasValidation, (req, res) =>{
+router.post('/', dramasController.addDrama, dramasValidation(), validate, (req, res) =>{
     // #swagger.tags = ['Dramas']
     // #swagger.description = 'Endpoint to add a new drama.'
 });
@@ -46,13 +46,4 @@ router.delete('/:id', dramasController.deleteDrama, (req, res) =>{
      // #swagger.parameters['id'] = { description: 'Drama ID.' }
 });
 
-// Handling Errors
-router.use((err, req, res, next) => {
-    // console.log(err);
-    err.statusCode = err.statusCode || 500;
-    err.message = err.message || "Internal Server Error";
-    res.status(err.statusCode).json({
-      message: err.message,
-    });
-});
 module.exports = router;

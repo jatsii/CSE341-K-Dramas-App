@@ -6,7 +6,7 @@ const actorsController = require('../controllers/actorsController');
 const createError = require('http-errors');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { actorsValidation } = require('../validation');
+const { actorsValidation, validate } = require('../validation');
 
 router.use(express.json());
  
@@ -31,7 +31,7 @@ router.get('/:id', actorsController.getSingleActor, (req, res) =>{
 
 });
 
-router.post('/', actorsController.addActor, actorsValidation, (req, res) =>{
+router.post('/', actorsController.addActor, actorsValidation(), validate, (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to add a new actor.'
 });
