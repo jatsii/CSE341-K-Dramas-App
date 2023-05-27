@@ -3,6 +3,21 @@ const router = express.Router();
 
 const actorsController = require('../controllers/actorsController');
 
+const createError = require('http-errors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const { actorsValidation } = require('../validation');
+
+router.use(express.json());
+ 
+router.use(bodyParser.json());
+ 
+router.use(bodyParser.urlencoded({
+    extended: true
+}));
+ 
+router.use(cors());
+
 router.get('/', actorsController.getAllActors, (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to get all actors.'
@@ -16,7 +31,7 @@ router.get('/:id', actorsController.getSingleActor, (req, res) =>{
 
 });
 
-router.post('/', actorsController.addActor, (req, res) =>{
+router.post('/', actorsController.addActor, actorsValidation, (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to add a new actor.'
 });
