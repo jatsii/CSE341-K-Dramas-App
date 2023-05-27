@@ -13,6 +13,9 @@ const getAllActors = async (req, res, next) => {
 };
 
 const getSingleActor = async (req, res, next) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid actor id to find the actor.');
+  }
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
@@ -47,6 +50,9 @@ const addActor = async (req, res) => {
 };
 
 const updateActor = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid actor id to update the actor.');
+  }
   const actorId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const actor = {
@@ -69,6 +75,9 @@ const updateActor = async (req, res) => {
 };
 
 const deleteActor = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid actor id to delete the actor.');
+  }
   const actorId = new ObjectId(req.params.id);
   const result = await mongodb.getDb().db("K-Dramas").collection('Actors').deleteOne({ _id: actorId }, true);
   

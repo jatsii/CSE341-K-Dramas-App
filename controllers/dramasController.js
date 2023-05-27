@@ -13,6 +13,9 @@ const getAllDramas = async (req, res, next) => {
 };
 
 const getSingleDrama = async (req, res, next) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid drama id to delete the drama.');
+  }
   const dramaId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
@@ -49,6 +52,9 @@ const addDrama = async (req, res) => {
 };
 
 const updateDrama = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid drama id to delete the drama.');
+  }
   const dramaId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const drama = {
@@ -74,6 +80,9 @@ const updateDrama = async (req, res) => {
 };
 
 const deleteDrama = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid drama id to delete the drama.');
+  }
   const dramaId = new ObjectId(req.params.id);
   const result = await mongodb.getDb().db("K-Dramas").collection('Dramas').deleteOne({ _id: dramaId }, true);
   
