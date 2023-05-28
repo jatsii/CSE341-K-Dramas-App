@@ -1,4 +1,4 @@
-/*const validator = require('./validate');
+const validator = require('./validate');
 
 const addActor = (req, res, next) => {
     const validationActor = {
@@ -46,9 +46,9 @@ const addDrama = (req, res, next) => {
 module.exports ={
     addActor,
     addDrama
-};*/
-
-const {body } = require('express-validator');
+};
+/*
+const {body, validationResult } = require('express-validator');
  
 const actorsValidation = () => {
     return [
@@ -70,7 +70,7 @@ const dramasValidation = () => {
         body('writer')  .trim().not().isEmpty().withMessage('The actor name is required')
     ]
 }
-/*
+
 const validate = (req, res, next) => {
     const errors = validationResult(req)
     if (errors.isEmpty()) {
@@ -82,9 +82,10 @@ const validate = (req, res, next) => {
     return res.status(422).json({
       errors: extractedErrors,
     })
-  }*/
+  }
   
   module.exports = {
     dramasValidation,
-    actorsValidation
-  }
+    actorsValidation,
+    validate
+  }*/
