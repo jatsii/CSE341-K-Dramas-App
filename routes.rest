@@ -20,7 +20,7 @@ content-type: application/json
     "date": "December 8, 2014 – February 10, 2015",
     "genre": "Action - Thriller - Romance",
     "producer": "Kim Jong-hak Production",
-    "writer": "Song Ji-na"
+    
 }
 
 ### Add actor

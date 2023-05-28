@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const actorsController = require('../controllers/actorsController');
-const validation = require('../validation');
+//const validation = require('../validation');
 //const {actorsValidation} = require('../validation');
+const { authSchemaActor } = require('../helpers/validation_schema')
 
 router.get('/', actorsController.getAllActors, (req, res) =>{
     // #swagger.tags = ['Actors']
@@ -18,7 +19,7 @@ router.get('/:id', actorsController.getSingleActor, (req, res) =>{
 
 });
 
-router.post('/',validation.addActor, actorsController.addActor,   (req, res) =>{
+router.post('/', actorsController.addActor,  async (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to add a new actor.'
     /*let errors = validationResult(req);
@@ -26,9 +27,11 @@ router.post('/',validation.addActor, actorsController.addActor,   (req, res) =>{
         console.log(errors.array());
         return res.json({errors: errors.array()});
     }*/
+    const result = await authSchemaActor.validateAsync(req.body)
+    console.log(result)
 });
 
-router.put('/:id', validation.addActor, actorsController.updateActor, (req, res) =>{
+router.put('/:id', actorsController.updateActor, (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to update an actor.'
      // #swagger.parameters['id'] = { description: 'Actor ID.' }
