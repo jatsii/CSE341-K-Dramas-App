@@ -1,14 +1,14 @@
-## Get Dramas
-GET http://localhost:3000/dramas
+###Get Dramas
+GET http://localhost:3000/dramas HTTP/1.1
 
-## Get Actors
-GET http://localhost:3000/actors
+###Get Actors
+GET http://localhost:3000/actors HTTP/1.1
 
-##Get single drama by Id
-GET http://localhost:3000/dramas/6467e9665fde0f46e4e7c18c
+###Get single drama by Id
+GET http://localhost:3000/dramas/646938affea7f2f12ced9f6f HTTP/1.1
 
-##Get single actor by Id
-GET http://localhost:3000/actors/6467ebb65fde0f46e4e7c18d
+###Get single actor by Id
+GET http://localhost:3000/actors/6467ebb65fde0f46e4e7c18d HTTP/1.1
 
 ### Add Drama
 POST http://localhost:3000/dramas HTTP/1.1
