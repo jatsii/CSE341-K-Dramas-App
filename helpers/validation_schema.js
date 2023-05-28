@@ -1,20 +1,20 @@
 const Joi = require('@hapi/joi')
 
 const authSchemaActor = Joi.object({
-    actorName: Joi.string().required(),
-    characterName: Joi.string().required(),
-    birthdate: Joi.string().required(),
-    nationality: Joi.string().required(),
+    actorName: Joi.string().min(4).required(),
+    characterName: Joi.string().min(4).required(),
+    birthdate: Joi.string().min(4).required(),
+    nationality: Joi.string().min(4).required(),
 })
 
 const authSchemaDrama = Joi.object({
-    title: Joi.string().required(),
-        content: Joi.string().required(),
+    title: Joi.string().min(4).required(),
+        content: Joi.string().min(4).required(),
         chapters: Joi.string().required(),
-        date: Joi.string().required(),
-        genre: Joi.string().required(),
-        producer: Joi.string().required(),
-        writer: Joi.string().required(),
+        date: Joi.string().min(4).required(),
+        genre: Joi.string().min(4).required(),
+        producer: Joi.string().min(4).required(),
+        writer: Joi.string().min(4).required(),
 })
 
 

@@ -13,31 +13,9 @@ GET http://localhost:3000/actors/6467ebb65fde0f46e4e7c18d
 ### Add Drama
 POST http://localhost:3000/dramas HTTP/1.1
 content-type: application/json
+
 {
     "title": "Healer",
-    "content": "A decades-old incident involving a group of five friends who ran an illegal pro-democracy broadcasting station during the Fifth Republic in South Korea brings together three different people—an illegal night courier with the codename Healer (Ji Chang-wook) who possesses top-notch fighting skills, a reporter from a second-rate tabloid news website (Park Min-young), and a famous journalist at a major broadcast station (Yoo Ji-tae).[9][10][11] While trying to uncover the truth from that 1992 incident and a series of present day murders, they grow into honest reporters who try to blur the lines of conflict between truth and reality, even if that means fighting media honchos.",
-    "chapters": "20",
-    "date": "December 8, 2014 – February 10, 2015",
-    "genre": "Action - Thriller - Romance",
-    "producer": "Kim Jong-hak Production",
-    
-}
-
-### Add actor
-POST http://localhost:3000/actors HTTP/1.1
-content-type: application/json
-{
-    "actorName": "Ji Chang Wook",
-    "characterName": "Seo Jung Hoo",
-    "birthdate": "july 5, 1987",
-    "nationality": "Korean"
-}
-
-### PUT drama
-PUT http://localhost:8080/contacts/64573f7f6db5a5ab61e22057 HTTP/1.1
-content-type: application/json
-{
-   "title": "Healer",
     "content": "A decades-old incident involving a group of five friends who ran an illegal pro-democracy broadcasting station during the Fifth Republic in South Korea brings together three different people—an illegal night courier with the codename Healer (Ji Chang-wook) who possesses top-notch fighting skills, a reporter from a second-rate tabloid news website (Park Min-young), and a famous journalist at a major broadcast station (Yoo Ji-tae).[9][10][11] While trying to uncover the truth from that 1992 incident and a series of present day murders, they grow into honest reporters who try to blur the lines of conflict between truth and reality, even if that means fighting media honchos.",
     "chapters": "20",
     "date": "December 8, 2014 – February 10, 2015",
@@ -46,18 +24,44 @@ content-type: application/json
     "writer": "Song Ji-na"
 }
 
-### PUT actor
-PUT http://localhost:8080/contacts/64573f7f6db5a5ab61e22057 HTTP/1.1
+### Add actor
+POST http://localhost:3000/actors HTTP/1.1
 content-type: application/json
+
 {
-   "actorName": "Ji Chang Wook",
+    "actorName": "Ji Chang Wook",
     "characterName": "Seo Jung Hoo",
     "birthdate": "july 5, 1987",
     "nationality": "Korean"
 }
 
+### PUT drama
+PUT http://localhost:3000/dramas/646938affea7f2f12ced9f6f HTTP/1.1
+content-type: application/json
+
+{
+   "title": "Healer",
+    "content": "A decades-old incident involving a group of five friends who ran an illegal pro-democracy broadcasting station during the Fifth Republic in South Korea brings together three different people—an illegal night courier with the codename Healer (Ji Chang-wook) who possesses top-notch fighting skills, a reporter from a second-rate tabloid news website (Park Min-young), and a famous journalist at a major broadcast station (Yoo Ji-tae).[9][10][11] While trying to uncover the truth from that 1992 incident and a series of present day murders, they grow into honest reporters who try to blur the lines of conflict between truth and reality, even if that means fighting media honchos.",
+    "chapters": "20",
+    "date": "December 8, 2014 – February 10, 2015",
+    "genre": "Action - Thriller - Romance",
+    "producer": "Kim Jong-hak Production",
+    "writer": "Song Ji na"
+}
+
+### PUT actor
+PUT http://localhost:3000/actors/6472c8d54e7c69e0be4ad07c HTTP/1.1
+content-type: application/json
+
+{
+   "actorName": "Ji Chang Wook",
+    "characterName": "Seo Jung Hoo",
+    "birthdate": "july 5, 1987",
+    "nationality": "Korea"
+}
+
 ### DELETE drama
-DELETE http://localhost:8080/contacts/6467e9665fde0f46e4e7c18c HTTP/1.1
+DELETE http://localhost:3000/dramas/6467e9665fde0f46e4e7c18c HTTP/1.1
 
 ### DELETE actor
-DELETE http://localhost:8080/contacts/6467ed255fde0f46e4e7c190 HTTP/1.1
+DELETE http://localhost:3000/actors/6467ed255fde0f46e4e7c190 HTTP/1.1

@@ -3,10 +3,13 @@ const router = express.Router();
 
 const dramasController = require('../controllers/dramasController');
 
-//const validation = require('../validation');
-//const {dramasValidation, validate} = require('../validation');
-//const { validationResult } = require('express-validator');
-const { authSchemaDrama } = require('../helpers/validation_schema')
+const schema = require('../helpers/validation_schema');
+const middlaware = require('../middleware/validation_middleware');
+var bodyParser = require("body-parser"); 
+const cors = require('cors'); 
+
+router.use(cors()); 
+router.use(bodyParser.json()); 
 
 router.get('/', dramasController.getAllDramas, (req, res) =>{
     // #swagger.tags = ['Dramas']
@@ -19,27 +22,18 @@ router.get('/:id', dramasController.getSingleDrama, (req, res) =>{
      // #swagger.parameters['id'] = { description: 'Drama ID.' }
 
 });
-router.post('/', dramasController.addDrama, async(req, res, next) =>{
+router.post('/', middlaware(schema.authSchemaDrama), dramasController.addDrama,(req, res) =>{
     // #swagger.tags = ['Dramas']
     // #swagger.description = 'Endpoint to add a new drama.'
-    /*let errors = validationResult(req);
-    if(!errors.isEmpty()){
-        console.log(errors.array());
-        return res.json({errors: errors.array()});
-    }*/
-    const result = await authSchemaDrama.validateAsync(req.body)
-    console.log(result)
+ 
+    res.json(req.body); 
 });
 
-router.put('/:id', dramasController.updateDrama, (req, res) =>{
+router.put('/:id',middlaware(schema.authSchemaDrama), dramasController.updateDrama, (req, res) =>{
     // #swagger.tags = ['Dramas']
     // #swagger.description = 'Endpoint to update a Drama.'
      // #swagger.parameters['id'] = { description: 'Drama ID.' }
-     /*let errors = validationResult(req);
-     if(!errors.isEmpty()){
-         console.log(errors.array());
-         return res.json({errors: errors.array()});
-     }*/
+     res.json(req.body); 
 });
 
 router.delete('/:id', dramasController.deleteDrama, (req, res) =>{

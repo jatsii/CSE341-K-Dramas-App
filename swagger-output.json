@@ -24,9 +24,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       },
@@ -68,11 +65,14 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "201": {
             "description": "The k-Drama was added successfully"
           },
-          "412": {
-            "description": "Precondition Failed"
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Faling adding the K-Drama"
@@ -152,17 +152,17 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "The drama was updated successfully"
+          "200": {
+            "description": "OK"
           },
           "204": {
-            "description": "No Content"
+            "description": "The drama was updated successfully"
           },
           "400": {
             "description": "Bad Request"
           },
-          "412": {
-            "description": "Precondition Failed"
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Faling updating the drama"
@@ -184,11 +184,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "The drama was deleted successfully"
-          },
           "204": {
-            "description": "No Content"
+            "description": "The drama was deleted successfully"
           },
           "400": {
             "description": "Bad Request"
@@ -212,9 +209,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       },
@@ -247,11 +241,14 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "201": {
             "description": "The actor was added successfully"
           },
-          "412": {
-            "description": "Precondition Failed"
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Faling adding the actor"
@@ -322,17 +319,17 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "The actor was updated successfully"
+          "200": {
+            "description": "OK"
           },
           "204": {
-            "description": "No Content"
+            "description": "The actor was updated successfully"
           },
           "400": {
             "description": "Bad Request"
           },
-          "412": {
-            "description": "Precondition Failed"
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Faling updating the actor"
@@ -354,11 +351,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "The actor was deleted successfully"
-          },
           "204": {
-            "description": "No Content"
+            "description": "The actor was deleted successfully"
           },
           "400": {
             "description": "Bad Request"

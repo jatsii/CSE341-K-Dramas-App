@@ -71,7 +71,7 @@ const updateDrama = async (req, res) => {
   console.log(result);
   
   if (result.modifiedCount > 0) {
-    // #swagger.responses[201] = { description: 'The drama was updated successfully' }
+    // #swagger.responses[204] = { description: 'The drama was updated successfully' }
     res.status(204).send();
   } else {
     // #swagger.responses[500] = { description: 'Faling updating the drama' }
@@ -88,7 +88,7 @@ const deleteDrama = async (req, res) => {
   
   console.log(result);
   if (result.deletedCount > 0) {
-    // #swagger.responses[201] = { description: 'The drama was deleted successfully' }
+    // #swagger.responses[204] = { description: 'The drama was deleted successfully' }
     res.status(204).send();
   } else {
     // #swagger.responses[500] = { description: 'Faling deleting the drama' }

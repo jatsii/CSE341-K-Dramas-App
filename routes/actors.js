@@ -2,9 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 const actorsController = require('../controllers/actorsController');
-//const validation = require('../validation');
-//const {actorsValidation} = require('../validation');
-const { authSchemaActor } = require('../helpers/validation_schema')
+
+const schema = require('../helpers/validation_schema');
+const middlaware = require('../middleware/validation_middleware');
+var bodyParser = require("body-parser"); 
+const cors = require('cors'); 
+
+router.use(cors()); 
+router.use(bodyParser.json()); 
 
 router.get('/', actorsController.getAllActors, (req, res) =>{
     // #swagger.tags = ['Actors']
@@ -19,27 +24,19 @@ router.get('/:id', actorsController.getSingleActor, (req, res) =>{
 
 });
 
-router.post('/', actorsController.addActor,  async (req, res) =>{
+router.post('/', middlaware(schema.authSchemaActor), actorsController.addActor,  (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to add a new actor.'
-    /*let errors = validationResult(req);
-    if(!errors.isEmpty()){
-        console.log(errors.array());
-        return res.json({errors: errors.array()});
-    }*/
-    const result = await authSchemaActor.validateAsync(req.body)
-    console.log(result)
+  
+    res.json(req.body); 
 });
 
-router.put('/:id', actorsController.updateActor, (req, res) =>{
+router.put('/:id',middlaware(schema.authSchemaActor), actorsController.updateActor, (req, res) =>{
     // #swagger.tags = ['Actors']
     // #swagger.description = 'Endpoint to update an actor.'
      // #swagger.parameters['id'] = { description: 'Actor ID.' }
-    /* let errors = validationResult(req);
-     if(!errors.isEmpty()){
-         console.log(errors.array());
-         return res.json({errors: errors.array()});
-     }*/
+    
+     res.json(req.body); 
 });
 
 router.delete('/:id', actorsController.deleteActor, (req, res) =>{

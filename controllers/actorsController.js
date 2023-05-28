@@ -66,7 +66,7 @@ const updateActor = async (req, res) => {
   console.log(result);
   
   if (result.modifiedCount > 0) {
-    // #swagger.responses[201] = { description: 'The actor was updated successfully' }
+    // #swagger.responses[204] = { description: 'The actor was updated successfully' }
     res.status(204).send();
   } else {
     // #swagger.responses[500] = { description: 'Faling updating the actor' }
@@ -83,7 +83,7 @@ const deleteActor = async (req, res) => {
   
   console.log(result);
   if (result.deletedCount > 0) {
-    // #swagger.responses[201] = { description: 'The actor was deleted successfully' }
+    // #swagger.responses[204] = { description: 'The actor was deleted successfully' }
     res.status(204).send();
   } else {
     // #swagger.responses[500] = { description: 'Faling deleting the actor' }
