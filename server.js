@@ -24,6 +24,11 @@ app
     console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
   });*/
   
+  app.set('view engine', 'ejs');
+  app.get('/', function(req, res){
+    res.render('pages/index');
+  });
+
 mongodb.initDb((err, mongodb) => {
   if (err) {
     console.log(err);
