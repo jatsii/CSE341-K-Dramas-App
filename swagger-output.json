@@ -363,5 +363,20 @@
         }
       }
     }
+  },
+  "securitySchemes": {
+    "oAuth": {
+      "type": "oauth2",
+      "description": "This API uses OAuth 2",
+      "flows": {
+        "clientCredentials": {
+          "tokenUrl": "https://github.com/login/oauth/access_token",
+          "scopes": {}
+        }
+      }
+    }
+  },
+  "security": {
+    "oAuthNoScopes": []
   }
 }

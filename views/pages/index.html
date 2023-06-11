@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--<%- include('../partials/head'); %>-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>K-Dramas- Github OAuth</title>
+
+    <!-- CSS (load bootstrap from a CDN) -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">-->
+    <link
+          href="https://fonts.googleapis.com/css2?family=Arvo&family=Kumbh+Sans&display=swap"
+          rel="stylesheet"
+        />
+
+    <link  type="text/css" rel="stylesheet" href="views\pages\style.css"/>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+<!--<body class="container">-->
+ <!-- <header>
+     <%- include('../partials/header'); %>
+   </header>
+   
+   <main> -->
+  <body>
+
+   
+
+    <div class="content unauthorized">
+       
+      <div class="top">
+        <h2>K-Dramas App - Log in Page</h2>
+        <img class="img-github" src="views\pages\github.png" />
+        <h1>Happy to see you<br /> 👋</h1>
+      </div>
+      <div class="content-bottom">
+        <a class="btn" href="/auth">SIGN IN WITH GITHUB</a>
+        <p class="sign-in-text">in order to get started</p>
+      </div>
+    </div>
+ 
+    <div class="content authorized" style="display: none">
+      <div class="top">
+        <img class="img-github" src="views\pages\github.png" />
+        <h1><span class="party-popper">🎉</span><br />Awesome!<br />You're authorized 🔒</h1>
+      </div>
+    </div>
+  
+  <!--
+  <form action="/#" method="post">
+
+  <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+          
+      <button type="submit">Login</button>
+      <label>
+      
+  </div>
+  </form>
+
+</main>
+<footer>
+  <%- include('../partials/footer'); %>
+  <p class="text-center text-muted">&copy; Copyright 2023 K-Dramas-App - Jatsiri Martinez</p>
+</footer>-->
+    <script type="text/javascript" src="views\pages\main.js"></script>
+  </body>
+</html>

@@ -1,3 +1,7 @@
+GET https://github.com/login/oauth/authorize
+
+POST https://github.com/login/oauth/access_token
+
 ###Get Dramas
 GET http://localhost:3000/dramas HTTP/1.1
 
